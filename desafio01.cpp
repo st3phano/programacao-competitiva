@@ -1,6 +1,8 @@
 /**
  * Optimization comparison between compilers in regards to matrix multiplication
  *
+ * GCC is a little faster than CLANG, CL lags way behind the two
+ *
  * From fastWithAt() to fastestWithAt():
  * ~ GCC -O3: Huge improvement
  * ~ CLANG -O3: Little improvement
