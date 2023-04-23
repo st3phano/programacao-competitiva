@@ -174,22 +174,23 @@ int main()
 {
    constexpr size_t MATRIX_SIZE{1000};
 
-   const intMatrix matrix(MATRIX_SIZE, intVector(MATRIX_SIZE, 1));
+   const intMatrix matrixA(MATRIX_SIZE * 2, intVector(MATRIX_SIZE, 1));
+   const intMatrix matrixB(MATRIX_SIZE, intVector(MATRIX_SIZE * 3, 1));
 
-   // std::cout << "[-] Slow:\n";
-   // printTimeSpentOnFunc(&multiplyMatrixSlow, matrix, matrix);
+   std::cout << "[-] Slow:\n";
+   printTimeSpentOnFunc(&multiplyMatrixSlow, matrixA, matrixB);
 
    std::cout << "[-] FastWithAt:\n";
-   printTimeSpentOnFunc(&multiplyMatrixFastWithAt, matrix, matrix);
+   printTimeSpentOnFunc(&multiplyMatrixFastWithAt, matrixA, matrixB);
 
    std::cout << "[-] FastestWithAt:\n";
-   printTimeSpentOnFunc(&multiplyMatrixFastestWithAt, matrix, matrix);
+   printTimeSpentOnFunc(&multiplyMatrixFastestWithAt, matrixA, matrixB);
 
    std::cout << "[-] Fast:\n";
-   printTimeSpentOnFunc(&multiplyMatrixFast, matrix, matrix);
+   printTimeSpentOnFunc(&multiplyMatrixFast, matrixA, matrixB);
 
    std::cout << "[-] Fastest:\n";
-   printTimeSpentOnFunc(&multiplyMatrixFastest, matrix, matrix);
+   printTimeSpentOnFunc(&multiplyMatrixFastest, matrixA, matrixB);
 
    return 0;
 }
