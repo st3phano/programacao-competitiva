@@ -15,6 +15,7 @@
  */
 
 #include <chrono>
+#include <cstddef>
 #include <iostream>
 #include <vector>
 
@@ -48,9 +49,9 @@ void printMatrix(const intMatrix &matrix)
 
 intMatrix multiplyMatrixSlow(const intMatrix &matrixA, const intMatrix &matrixB)
 {
-   const size_t rowsMatrixA{matrixA.size()};
-   const size_t rowsMatrixB{matrixB.size()};
-   const size_t colsMatrixB{matrixB[0].size()};
+   const std::size_t rowsMatrixA{matrixA.size()};
+   const std::size_t rowsMatrixB{matrixB.size()};
+   const std::size_t colsMatrixB{matrixB[0].size()};
 
    intMatrix matrixResult(rowsMatrixA, intVector(colsMatrixB));
 
@@ -72,9 +73,9 @@ intMatrix multiplyMatrixSlow(const intMatrix &matrixA, const intMatrix &matrixB)
 
 intMatrix multiplyMatrixFastWithAt(const intMatrix &matrixA, const intMatrix &matrixB)
 {
-   const size_t rowsMatrixA{matrixA.size()};
-   const size_t rowsMatrixB{matrixB.size()};
-   const size_t colsMatrixB{matrixB[0].size()};
+   const std::size_t rowsMatrixA{matrixA.size()};
+   const std::size_t rowsMatrixB{matrixB.size()};
+   const std::size_t colsMatrixB{matrixB[0].size()};
 
    intMatrix matrixResult(rowsMatrixA, intVector(colsMatrixB, 0));
 
@@ -94,23 +95,23 @@ intMatrix multiplyMatrixFastWithAt(const intMatrix &matrixA, const intMatrix &ma
 
 intMatrix multiplyMatrixFastestWithAt(const intMatrix &matrixA, const intMatrix &matrixB)
 {
-   const size_t rowsMatrixA{matrixA.size()};
-   const size_t rowsMatrixB{matrixB.size()};
-   const size_t colsMatrixB{matrixB[0].size()};
+   const std::size_t rowsMatrixA{matrixA.size()};
+   const std::size_t rowsMatrixB{matrixB.size()};
+   const std::size_t colsMatrixB{matrixB[0].size()};
 
    intMatrix matrixResult(rowsMatrixA, intVector(colsMatrixB, 0));
 
-   for (size_t row{0}; row < rowsMatrixA; ++row)
+   for (std::size_t row{0}; row < rowsMatrixA; ++row)
    {
       intVector &rowResut{matrixResult.at(row)};
       const intVector &rowA{matrixA.at(row)};
 
-      for (size_t rowOrCol{0}; rowOrCol < rowsMatrixB; ++rowOrCol)
+      for (std::size_t rowOrCol{0}; rowOrCol < rowsMatrixB; ++rowOrCol)
       {
          const int elemA{rowA.at(rowOrCol)};
          const intVector &rowB{matrixB.at(rowOrCol)};
 
-         for (size_t col{0}; col < colsMatrixB; ++col)
+         for (std::size_t col{0}; col < colsMatrixB; ++col)
          {
             rowResut.at(col) += elemA * rowB.at(col);
          }
@@ -122,9 +123,9 @@ intMatrix multiplyMatrixFastestWithAt(const intMatrix &matrixA, const intMatrix 
 
 intMatrix multiplyMatrixFast(const intMatrix &matrixA, const intMatrix &matrixB)
 {
-   const size_t rowsMatrixA{matrixA.size()};
-   const size_t rowsMatrixB{matrixB.size()};
-   const size_t colsMatrixB{matrixB[0].size()};
+   const std::size_t rowsMatrixA{matrixA.size()};
+   const std::size_t rowsMatrixB{matrixB.size()};
+   const std::size_t colsMatrixB{matrixB[0].size()};
 
    intMatrix matrixResult(rowsMatrixA, intVector(colsMatrixB, 0));
 
@@ -144,23 +145,23 @@ intMatrix multiplyMatrixFast(const intMatrix &matrixA, const intMatrix &matrixB)
 
 intMatrix multiplyMatrixFastest(const intMatrix &matrixA, const intMatrix &matrixB)
 {
-   const size_t rowsMatrixA{matrixA.size()};
-   const size_t rowsMatrixB{matrixB.size()};
-   const size_t colsMatrixB{matrixB[0].size()};
+   const std::size_t rowsMatrixA{matrixA.size()};
+   const std::size_t rowsMatrixB{matrixB.size()};
+   const std::size_t colsMatrixB{matrixB[0].size()};
 
    intMatrix matrixResult(rowsMatrixA, intVector(colsMatrixB, 0));
 
-   for (size_t row{0}; row < rowsMatrixA; ++row)
+   for (std::size_t row{0}; row < rowsMatrixA; ++row)
    {
       intVector &rowResut{matrixResult[row]};
       const intVector &rowA{matrixA[row]};
 
-      for (size_t rowOrCol{0}; rowOrCol < rowsMatrixB; ++rowOrCol)
+      for (std::size_t rowOrCol{0}; rowOrCol < rowsMatrixB; ++rowOrCol)
       {
          const int elemA{rowA[rowOrCol]};
          const intVector &rowB{matrixB[rowOrCol]};
 
-         for (size_t col{0}; col < colsMatrixB; ++col)
+         for (std::size_t col{0}; col < colsMatrixB; ++col)
          {
             rowResut[col] += elemA * rowB[col];
          }
@@ -172,7 +173,7 @@ intMatrix multiplyMatrixFastest(const intMatrix &matrixA, const intMatrix &matri
 
 int main()
 {
-   constexpr size_t MATRIX_SIZE{1000};
+   constexpr std::size_t MATRIX_SIZE{1000};
 
    const intMatrix matrixA(MATRIX_SIZE * 2, intVector(MATRIX_SIZE, 1));
    const intMatrix matrixB(MATRIX_SIZE, intVector(MATRIX_SIZE * 3, 1));
