@@ -25,19 +25,24 @@
 
 int main()
 {
-   const std::vector<int> vendasDia{3, 4, 7, 1, 2, 6, 9}; // número de dias: 2 <= N <= 10^5
+   int dias;
+   std::cin >> dias; // número de dias: 2 <= N <= 10^5
+   int vendasOntem, vendasHoje;
+   std::cin >> vendasOntem >> vendasHoje;
 
-   int variacaoAtual{vendasDia[1] - vendasDia[0]};
+   int variacaoAtual{vendasHoje - vendasOntem};
    int maiorVariacao{variacaoAtual};
-   for (std::size_t i{1}, j{2}; j < vendasDia.size(); ++i, ++j)
+   for (std::size_t dia{3}; dia <= dias; ++dia)
    {
-      int variacaoEntreDoisDias{vendasDia[j] - vendasDia[i]};
+      vendasOntem = vendasHoje;
+      std::cin >> vendasHoje;
 
       // algoritmo de Kadane
-      variacaoAtual += variacaoEntreDoisDias;
-      if (variacaoAtual < variacaoEntreDoisDias)
+      int variacaoEntreHojeOntem{vendasHoje - vendasOntem};
+      variacaoAtual += variacaoEntreHojeOntem;
+      if (variacaoAtual < variacaoEntreHojeOntem)
       {
-         variacaoAtual = variacaoEntreDoisDias;
+         variacaoAtual = variacaoEntreHojeOntem;
       }
       if (maiorVariacao < variacaoAtual)
       {
