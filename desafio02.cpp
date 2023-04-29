@@ -19,6 +19,7 @@
  * Explicação: A maior variação é entre 1 e 9 (dias 4 e 7), com uma variação de 8
  */
 
+#include <cstddef>
 #include <iostream>
 #include <vector>
 
@@ -32,7 +33,7 @@ int main()
    {
       int variacaoEntreDoisDias{vendasDia[j] - vendasDia[i]};
 
-      // kadane
+      // algoritmo de Kadane
       variacaoAtual += variacaoEntreDoisDias;
       if (variacaoAtual < variacaoEntreDoisDias)
       {
