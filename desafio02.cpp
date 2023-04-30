@@ -32,7 +32,7 @@ int main()
 
    int variacaoAtual{vendasHoje - vendasOntem};
    int maiorVariacao{variacaoAtual};
-   for (std::size_t dia{3}; dia <= dias; ++dia)
+   for (int dia{3}; dia <= dias; ++dia)
    {
       vendasOntem = vendasHoje;
       std::cin >> vendasHoje;
