@@ -19,7 +19,6 @@
  * Explicação: A maior variação é entre 1 e 9 (dias 4 e 7), com uma variação de 8
  */
 
-#include <cstddef>
 #include <iostream>
 #include <vector>
 
