@@ -1,5 +1,5 @@
 /**
- * Dado um conjunto de nomes brasileiros, encontre e imprima todos os nomes que contêm mais de 2 vogais.
+ * Given a set of Brazilian names, find and print all the names that contain more than 2 vowels.
  */
 
 #include <algorithm>
@@ -10,8 +10,8 @@ inline bool isVowel(char ch)
 {
    const std::string vowels{"aeiouAEIOU"};
 
-   // can we find ch inside vowels?
-   return (find(vowels.begin(), vowels.end(), ch) != vowels.end());
+   // can we find 'ch' inside vowels?
+   return (std::find(vowels.begin(), vowels.end(), ch) != vowels.end());
 }
 
 int countVowels(const std::string &str)

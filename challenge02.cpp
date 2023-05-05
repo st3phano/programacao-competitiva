@@ -1,22 +1,22 @@
 /**
- * Uma loja online deseja analisar o histórico de vendas de um determinado produto para melhorar sua
- * estratégia de marketing. O objetivo é identificar o período de tempo em que o aumento nas vendas
- * foi o maior possível. Dado um array de inteiros representando as vendas diárias de um produto,
- * encontre a subsequência contígua de maior variação nas vendas e determine seu valor.
+ * An online store wants to analyze the sales history of a particular product to improve its marketing strategy.
+ * The goal is to identify the period of time in which the increase in sales was the greatest possible.
+ * Given an array of integers representing the daily sales of a product,
+ * find the contiguous subsequence with the greatest variation in sales and determine its value.
  *
- * Entrada: A primeira linha contém um único inteiro N (2 <= N <= 10^5), representando o número de
- * dias. A segunda linha contém N inteiros A[i] (0 <= A[i] <= 10^4), representando as vendas diárias do
- * produto.
+ * Input: The first line contains a single integer N (2 <= N <= 10^5), representing the number of days.
+ * The second line contains N integers A[i] (0 <= A[i] <= 10^4), representing the daily sales of the product.
  *
- * Saída: Imprima um único inteiro, que representa o valor da maior variação nas vendas em um
- * período contíguo.
+ * Output: Print a single integer, representing the value of the greatest variation in sales in a contiguous period.
  *
- * Exemplo de Entrada:
+ * Input Example:
  * 7
  * 3 4 7 1 2 6 9
- * Exemplo de Saída:
+ *
+ * Output Example:
  * 8
- * Explicação: A maior variação é entre 1 e 9 (dias 4 e 7), com uma variação de 8
+ *
+ * Explanation: The greatest variation is between 1 and 9 (days 4 and 7), with a variation of 8.
  */
 
 #include <iostream>
@@ -24,32 +24,32 @@
 
 int main()
 {
-   int dias;
-   std::cin >> dias; // número de dias: 2 <= N <= 10^5
-   int vendasOntem, vendasHoje;
-   std::cin >> vendasOntem >> vendasHoje;
+   int days;
+   std::cin >> days; // number of days: 2 <= N <= 10^5
+   int salesYesterday, salesToday;
+   std::cin >> salesYesterday >> salesToday;
 
-   int variacaoAtual{vendasHoje - vendasOntem};
-   int maiorVariacao{variacaoAtual};
-   for (int dia{3}; dia <= dias; ++dia)
+   int currentVariation{salesToday - salesYesterday};
+   int greatestVariation{currentVariation};
+   for (int day{3}; day <= days; ++day)
    {
-      vendasOntem = vendasHoje;
-      std::cin >> vendasHoje;
+      salesYesterday = salesToday;
+      std::cin >> salesToday;
 
-      // algoritmo de Kadane
-      int variacaoEntreHojeOntem{vendasHoje - vendasOntem};
-      variacaoAtual += variacaoEntreHojeOntem;
-      if (variacaoAtual < variacaoEntreHojeOntem)
+      // Kadane's Algorithm
+      int salesTodayMinusYesterday{salesToday - salesYesterday};
+      currentVariation += salesTodayMinusYesterday;
+      if (currentVariation < salesTodayMinusYesterday)
       {
-         variacaoAtual = variacaoEntreHojeOntem;
+         currentVariation = salesTodayMinusYesterday;
       }
-      if (maiorVariacao < variacaoAtual)
+      if (greatestVariation < currentVariation)
       {
-         maiorVariacao = variacaoAtual;
+         greatestVariation = currentVariation;
       }
    }
 
-   std::cout << maiorVariacao << '\n';
+   std::cout << greatestVariation << '\n';
 
    return 0;
 }

@@ -1,5 +1,5 @@
 /**
- * Dado um vetor de inteiros, encontre e imprima a soma de todos os números pares.
+ * Given an array of integers, find and print the sum of all even numbers.
  */
 
 #include <iostream>
@@ -9,16 +9,16 @@ int main()
 {
    std::vector<int> integers{1, -2, 3, 4, -5, 6, 7, -8, 9, 10};
 
-   int evenSum{0};
+   int sumEvenIntegers{0};
    for (int integer : integers)
    {
       if (integer % 2 == 0)
       {
-         evenSum += integer;
+         sumEvenIntegers += integer;
       }
    }
 
-   std::cout << "Sum of even integers: " << evenSum << '\n';
+   std::cout << "Sum of even integers: " << sumEvenIntegers << '\n';
 
    return 0;
 }
