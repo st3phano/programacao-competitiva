@@ -8,7 +8,7 @@
 #include <queue>
 #include <string>
 
-void registerNewPatient(std::queue<std::string> &patients);
+void addPatient(std::queue<std::string> &patients);
 void getNextPatient(std::queue<std::string> &patients);
 void printPatientQueue(std::queue<std::string> patients);
 
@@ -33,7 +33,7 @@ int main()
 
       if (choice == ADD_PATIENT)
       {
-         registerNewPatient(patients);
+         addPatient(patients);
       }
       else if (choice == NEXT_PATIENT)
       {
@@ -48,7 +48,7 @@ int main()
    return 0;
 }
 
-void registerNewPatient(std::queue<std::string> &patients)
+void addPatient(std::queue<std::string> &patients)
 {
    std::cout << "New patient name: ";
    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
