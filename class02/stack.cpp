@@ -22,30 +22,30 @@ int main()
    std::stack<std::string> textEditor;
    std::stack<std::string> undoStack;
 
-   const std::string INSERT{"insert"};
-   const std::string UNDO{"undo"};
-   const std::string REDO{"redo"};
-   const std::string PRINT{"print"};
+   const std::string INSERT_WORD{"insert"};
+   const std::string UNDO_WORD{"undo"};
+   const std::string REDO_WORD{"redo"};
+   const std::string PRINT_TEXT{"print"};
    const std::string EXIT{"exit"};
    std::string choice;
    do
    {
       std::cout << "\n- Options:\n"
-                << "[-] " << INSERT << "\n"
-                << "[-] " << UNDO << "\n"
-                << "[-] " << REDO << "\n"
-                << "[-] " << PRINT << "\n"
+                << "[-] " << INSERT_WORD << "\n"
+                << "[-] " << UNDO_WORD << "\n"
+                << "[-] " << REDO_WORD << "\n"
+                << "[-] " << PRINT_TEXT << "\n"
                 << "[-] " << EXIT << "\n"
                 << ": ";
       std::cin >> choice;
 
-      if (choice == INSERT)
+      if (choice == INSERT_WORD)
       {
          std::string toInsert{};
          std::cin >> toInsert;
          textEditor.push(toInsert);
       }
-      else if (choice == UNDO)
+      else if (choice == UNDO_WORD)
       {
          if (!textEditor.empty())
          {
@@ -57,7 +57,7 @@ int main()
             std::cout << "No actions to undo!\n";
          }
       }
-      else if (choice == REDO)
+      else if (choice == REDO_WORD)
       {
          if (!undoStack.empty())
          {
@@ -69,7 +69,7 @@ int main()
             std::cout << "No actions to redo!\n";
          }
       }
-      else if (choice == PRINT)
+      else if (choice == PRINT_TEXT)
       {
          printStack(textEditor);
       }
