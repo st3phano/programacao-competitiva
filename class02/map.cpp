@@ -36,7 +36,7 @@ int main()
       if (choice == ADD_BOOK)
       {
          std::string bookTitle{askForBookTitle()};
-         unsigned amount{askForCopiesAmount()};
+         unsigned amount{askForCopyCount()};
 
          if (booksQuantityRecord.find(bookTitle) == booksQuantityRecord.end())
          {
@@ -52,7 +52,7 @@ int main()
       else if (choice == REMOVE_BOOK)
       {
          std::string bookTitle{askForBookTitle()};
-         unsigned amount{askForCopiesAmount()};
+         unsigned amount{askForCopyCount()};
 
          if (booksQuantityRecord.find(bookTitle) == booksQuantityRecord.end())
          {
