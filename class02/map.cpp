@@ -12,7 +12,7 @@
 #include <utility>
 
 std::string askForBookTitle();
-unsigned askForCopiesAmount();
+unsigned askForCopyCount();
 
 int main()
 {
@@ -97,9 +97,9 @@ std::string askForBookTitle()
    return bookTitle;
 }
 
-unsigned askForCopiesAmount()
+unsigned askForCopyCount()
 {
-   std::cout << "Type the amount of copies: ";
+   std::cout << "Type the number of copies: ";
    unsigned amount;
    std::cin >> amount;
 
