@@ -19,8 +19,8 @@ void printStack(std::stack<std::string> s)
 
 int main()
 {
-   std::stack<std::string> textEditor;
-   std::stack<std::string> undoStack;
+   std::stack<std::string> textEditor{};
+   std::stack<std::string> undoStack{};
 
    const std::string INSERT_WORD{"insert"};
    const std::string UNDO_WORD{"undo"};
