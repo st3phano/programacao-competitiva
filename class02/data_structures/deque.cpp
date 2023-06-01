@@ -102,6 +102,11 @@ int main()
          {
             std::size_t orderIndex{orderNumber - 1};
             orders.erase(orders.begin() + orderIndex);
+            if (orderIndex < vipOrderCount)
+            {
+               --vipOrderCount;
+            }
+
             std::cout << "Order " << orderNumber << " removed successfully!\n";
          }
       }
