@@ -21,16 +21,16 @@ int main()
    const std::string PRINT_ORDERS{"print"};
    const std::string EXIT{"exit"};
 
-   std::string options{"\n- Options:\n" +
-                       ADD_ORDER + "\n" +
-                       GET_NEXT_ORDER + "\n" +
-                       PRINT_ORDERS + "\n" +
-                       REMOVE_ORDER + "\n" +
-                       EXIT + "\n" +
-                       ": "};
+   const std::string OPTIONS{"\n- Options:\n" +
+                             ADD_ORDER + "\n" +
+                             GET_NEXT_ORDER + "\n" +
+                             PRINT_ORDERS + "\n" +
+                             REMOVE_ORDER + "\n" +
+                             EXIT + "\n" +
+                             ": "};
 
    std::string choice;
-   while (std::cout << options, std::cin >> choice && choice != EXIT)
+   while (std::cout << OPTIONS, std::cin >> choice && choice != EXIT)
    {
       if (choice == ADD_ORDER)
       {
