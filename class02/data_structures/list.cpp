@@ -55,25 +55,29 @@ int main()
             std::cout << "Invalid index!\n";
          }
       }
-      else if (choice == MOVE_SONG) // TO-DO: fix move songs to a higher index
+      else if (choice == MOVE_SONG)
       {
-         std::cout << "Song index: ";
-         std::size_t songIndex;
-         std::cin >> songIndex;
+         std::cout << "From index: ";
+         std::size_t fromIndex;
+         std::cin >> fromIndex;
 
-         std::cout << "New index: ";
-         std::size_t newIndex;
-         std::cin >> newIndex;
+         std::cout << "To index: ";
+         std::size_t toIndex;
+         std::cin >> toIndex;
 
-         if (songIndex < playlist.size() && newIndex < playlist.size())
+         if ((fromIndex != toIndex) && (fromIndex < playlist.size()) && (toIndex < playlist.size()))
          {
-            auto songIndexIter{playlist.begin()};
-            std::advance(songIndexIter, songIndex);
+            auto fromIndexIter{playlist.begin()};
+            std::advance(fromIndexIter, fromIndex);
 
-            auto newIndexIter{playlist.begin()};
-            std::advance(newIndexIter, newIndex);
+            if (toIndex > fromIndex)
+            {
+               ++toIndex; // std::splice inserts BEFORE the destination
+            }
+            auto toIndexIter{playlist.begin()};
+            std::advance(toIndexIter, toIndex);
 
-            playlist.splice(newIndexIter, playlist, songIndexIter);
+            playlist.splice(toIndexIter, playlist, fromIndexIter);
          }
          else
          {
@@ -82,11 +86,18 @@ int main()
       }
       else if (choice == PRINT_SONGS)
       {
-         std::size_t i{0};
-         for (const auto &song : playlist)
+         if (playlist.empty())
          {
-            std::cout << i << ". " << song << "\n";
-            ++i;
+            std::cout << "The playlist is empty!\n";
+         }
+         else
+         {
+            std::size_t i{0};
+            for (const auto &song : playlist)
+            {
+               std::cout << i << ". " << song << "\n";
+               ++i;
+            }
          }
       }
    }
