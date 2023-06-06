@@ -23,7 +23,7 @@ int main()
    const std::string MOVE_SONG{"move"};
    const std::string PRINT_SONGS{"print"};
    const std::string EXIT{"exit"};
-   const std::string options{"\n- Options:\n" +
+   const std::string OPTIONS{"\n- Options:\n" +
                              ADD_SONG + "\n" +
                              REMOVE_SONG + "\n" +
                              MOVE_SONG + "\n" +
@@ -32,7 +32,7 @@ int main()
                              ": "};
 
    std::string choice;
-   while (std::cout << options, std::cin >> choice && choice != EXIT)
+   while (std::cout << OPTIONS, std::cin >> choice && choice != EXIT)
    {
       if (choice == ADD_SONG)
       {
