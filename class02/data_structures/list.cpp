@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <cctype>
 #include <iostream>
+#include <iterator>
 #include <limits>
 #include <list>
 #include <string>
